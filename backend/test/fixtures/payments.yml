@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_account: one
+  amount: 1
+  payload: MyText
+  currency: MyString
+
+two:
+  payment_account: two
+  amount: 1
+  payload: MyText
+  currency: MyString

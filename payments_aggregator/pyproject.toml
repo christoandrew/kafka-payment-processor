@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "payments-aggregator"
+version = "0.1.0"
+description = ""
+authors = ["christoandrew <andrew.christo.wekesa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "payments_aggregator"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = {extras = ["all"], version = "^0.108.0"}
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+confluent-kafka = "^2.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
