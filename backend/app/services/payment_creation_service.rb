@@ -1,5 +1,6 @@
 class PaymentCreationService < ApplicationService
   def initialize(payment_account, amount, payload = nil, currency = nil)
+    Rails.logger.info "PaymentCreationService#initialize"
     @payment_account = payment_account
     @amount = amount
     @currency = currency
@@ -12,6 +13,7 @@ class PaymentCreationService < ApplicationService
   end
 
   def call
+    Rails.logger.info "PaymentCreationService#call"
     Payment.create!(payment_account: @payment_account, amount: @amount, currency: @currency)
   end
 end

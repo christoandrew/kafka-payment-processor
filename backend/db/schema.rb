@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_28_200428) do
+ActiveRecord::Schema.define(version: 2024_01_03_084843) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 2023_12_28_200428) do
     t.index ["payment_account_id"], name: "index_payments_on_payment_account_id"
   end
 
+  create_table "short_messages", force: :cascade do |t|
+    t.text "text"
+    t.datetime "sent_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
+    t.integer "payment_id", null: false
+    t.index ["customer_id"], name: "index_short_messages_on_customer_id"
+    t.index ["payment_id"], name: "index_short_messages_on_payment_id"
+  end
+
   add_foreign_key "payment_accounts", "customers"
   add_foreign_key "payments", "payment_accounts"
+  add_foreign_key "short_messages", "customers"
+  add_foreign_key "short_messages", "payments"
 end
